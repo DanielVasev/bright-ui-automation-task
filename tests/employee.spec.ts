@@ -3,8 +3,8 @@ import { LoginPage } from '../page-objects/LoginPage'
 import { DashboardPage } from '../page-objects/DashboardPage'
 import { EmployeePage } from '../page-objects/EmployeePage'
 
-const credEmail = userName
-const credPassword = Password
+const credEmail = process.env.CRED_EMAIL!
+const credPassword = process.env.CRED_PASSWORD!
 
 test.describe('Employee Management', () => {
   let loginPage: LoginPage
@@ -37,7 +37,7 @@ test.describe('Employee Management', () => {
   })
 
   //Additional step / test to bring the environment in the initial state.
- test('Delete employees', async () => {
+  test('Delete employees', async () => {
     await employeePage.deleteEmployee('Olive Oyl')
     await employeePage.deleteEmployee('Jhon Velásquez')
   }) 
