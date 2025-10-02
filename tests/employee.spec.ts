@@ -21,6 +21,12 @@ test.describe('Employee Management', () => {
     await dashboardPage.goToEmployees()
   })
 
+  test.afterEach(async ({ page }) => {
+  await page.close();
+  console.log('Page closed after test');
+});
+
+
   test('Add first employee', async () => {
     await employeePage.addEmployee('Jhon', 'Velásquez', 'jhonVelasquez@test.co.uk', '01611118881', 'Tester')
     await employeePage.verifyEmployeeExists('Jhon Velásquez')
